@@ -45,9 +45,12 @@ def search(url):
 
     html = etree.HTML(raw_html)
     try:
+        td = html.xpath('//tr[@id="nr"]/td/')
         pages = html.xpath('//*[@id="pagelink"]/a/text()')[-1]
     except IndexError as e:
         return 0
+    except etree.XPathEvalError as e:
+        return raw_html 
     return pages
 
 def choose_novel(total):
