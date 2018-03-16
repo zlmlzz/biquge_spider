@@ -9,6 +9,10 @@ from urllib.request import HTTPError
 
 USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36'
 
+def isSearch(url):
+    if re.match(r'http://www.biquge.com.tw/\d*_\d*/', url):
+        return url
+    
 
 #读文件
 
@@ -31,7 +35,7 @@ headers = {
         'user-agent':get_random_user_agent(),
         }
 #获取网页内容
-def download(url, headers=headers, params=None, num_retries=2, timeout=20, search=False):
+def download(url, headers=headers, params=None, num_retries=2, timeout=20, is_search=False):
     print('downloading:' + url, end='   ')
     #throttle = Throttle(random.uniform(7, 10))
     #throttle.wait(url)
@@ -47,9 +51,8 @@ def download(url, headers=headers, params=None, num_retries=2, timeout=20, searc
         if num_retries > 0: 
             return download(url, num_retries - 1)
     print(res.status_code)
-    if search:
-        if re.match(r'http://www.biquge.com.tw/\d*_\d*/', res.url):
-            return res.url
+    if is_search:
+        return isSearch(res.url)
     #res.encoding = res.apparent_encoding
     html = res.text
 
