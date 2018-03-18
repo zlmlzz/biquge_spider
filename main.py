@@ -5,7 +5,7 @@ import re
 from search import search, get_pages, choose_novel
 from links import get_links, get_stamp_urls, get_datas
 from multiprocessing import Pool
-from dateswrite import datas_write 
+from datewrite import datas_write 
 
 global contents
 def main(url):
