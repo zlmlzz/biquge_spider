@@ -13,6 +13,8 @@ def main(url):
     pages = search(url)
     pageall = get_pages(pages)
     book_url = choose_novel(pageall)
+    if book_url is None:
+        return
     if re.match(r'http://www.biquge.com.tw/\d*_\d*/', book_url):
         urls = get_links(book_url)
         stamp_urls = get_stamp_urls(urls)
