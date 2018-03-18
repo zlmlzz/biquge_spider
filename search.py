@@ -1,4 +1,4 @@
-#!/usr/bin/env/ python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import re
@@ -38,7 +38,7 @@ def get_pages(num, url=URL):
 
 
 def search(url):
-    raw_html = download(url, params=payload, search=True)
+    raw_html = download(url, params=payload, is_search=True)
     if re.match(r'http://www.biquge.com.tw/\d*_\d*/', raw_html):
         print('prepare download.', end='')
         return raw_html
