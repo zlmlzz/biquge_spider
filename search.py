@@ -39,6 +39,8 @@ def get_pages(num, url=URL):
 
 def search(url):
     raw_html = download(url, params=payload, is_search=True)
+    if raw_html is None:
+        return 0     
     if re.match(r'http://www.biquge.com.tw/\d*_\d*/', raw_html):
         print('prepare download.', end='')
         return raw_html
@@ -57,6 +59,8 @@ def choose_novel(total):
     if type(total) == type(str()):
         print('.')
         return total
+    if total == 0:
+        return
     urls = []
     titles = []
     authors = []
@@ -67,7 +71,7 @@ def choose_novel(total):
     for i in range(len(urls)):
         print('作者:%-40s\t书名:\t%-40s\t序号:\t%-20s' %(authors[i], titles[i], str(i)))
     num = -1 if total == 0 else int(input('choose one:'))
-    if 0 <= num <= len(urls):
+    if 0 < num <= len(urls):
         return urls[num]
     else:
         print('sorry')
