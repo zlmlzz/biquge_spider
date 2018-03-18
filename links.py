@@ -4,7 +4,7 @@
 from download import download
 from lxml import etree
 from urllib.parse import urljoin
-from dataswrite import datas_write
+from dateswrite import datas_write
 
 def get_links(url):
     html = etree.HTML(download(url))
