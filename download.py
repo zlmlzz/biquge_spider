@@ -29,9 +29,6 @@ def get_random_user_agent():
     return random.choice(get_data('user_agents.txt',USER_AGENT))
 
 headers = {
-        'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-        'Accept-Encoding':'gzip, deflate',
-        'Accept-Language':'zh-CN,zh;q=0.9',
         'user-agent':get_random_user_agent(),
         }
 #获取网页内容
