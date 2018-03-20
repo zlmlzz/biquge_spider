@@ -3,7 +3,6 @@
 
 import requests, time, random, datetime, re
 from lxml import etree
-from multiprocessing import Pool
 from urllib.parse import urljoin, urlparse
 from urllib.request import HTTPError
 
