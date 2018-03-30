@@ -31,7 +31,7 @@ headers = {
         'user-agent':get_random_user_agent(),
         }
 #获取网页内容
-def download(url, headers=headers, params=None, num_retries=2, timeout=20, is_search=False):
+def download(url, headers=headers, params=None, num_retries=3, timeout=20, is_search=False):
     print('downloading:' + url, end='   ')
     #throttle = Throttle(random.uniform(7, 10))
     #throttle.wait(url)
