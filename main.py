@@ -32,6 +32,7 @@ if __name__ == '__main__':
         print('sorry!')
     else:
         contents = p.map(get_datas, stamp_urls)
+        print('即将完成')
         for content in contents:
             datas_write(content)
 #    p.map(get_datas, stamp_urls)
